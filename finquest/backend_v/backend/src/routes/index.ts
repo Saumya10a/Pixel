@@ -1,0 +1,18 @@
+import { Router } from "express"
+import authRoutes from "./auth.routes.js"
+import userRoutes from "./user.routes.js"
+import lessonRoutes from "./lesson.routes.js"
+import tradeRoutes from "./trade.routes.js"
+import leaderboardRoutes from "./leaderboard.routes.js"
+import eventsRoutes from "./event.route.js"
+
+const router = Router()
+
+router.use("/auth", authRoutes)
+router.use("/users", userRoutes)
+router.use("/lessons", lessonRoutes)
+router.use("/trades", tradeRoutes)
+router.use("/leaderboard", leaderboardRoutes)
+router.use("/events", eventsRoutes)
+
+export default router
