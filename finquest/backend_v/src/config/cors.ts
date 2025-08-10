@@ -1,6 +1,3 @@
-import { ENV } from './env';
-
-// Example usage:
-const corsOptions = {
-  origin: ENV.CLIENT_URL,
-};
+import dotenv from 'dotenv';
+dotenv.config();
+const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',') ?? [];
