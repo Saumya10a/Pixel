@@ -1,5 +1,5 @@
 import cors from "cors"
-import { env } from "./env"
+import { env } from "./env.js"
 
 const allowedOrigins = [
   "http://localhost:5173",
