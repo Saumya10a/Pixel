@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Finquest Design System - All colors in HSL tokens */
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 0 0% 6%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 0 0% 6%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 152 64% 40%; /* emerald */
+    --primary-foreground: 152 86% 96%;
+
+    --secondary: 46 90% 55%; /* gold */
+    --secondary-foreground: 46 100% 12%;
+
+    --muted: 222 14% 18%;
+    --muted-foreground: 215 20% 78%;
+
+    --accent: 210 40% 14%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 10% 20%;
+    --input: 220 10% 20%;
+    --ring: 152 64% 40%;
+
+    --radius: 0.9rem;
+
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 152 64% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 10% 16%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 220 10% 20%;
+    --sidebar-ring: 152 64% 40%;
+
+    /* Finquest extras */
+    --brand-emerald: 152 64% 40%;
+    --brand-emerald-fore: 152 86% 96%;
+    --brand-gold: 46 90% 55%;
+    --brand-gold-fore: 46 100% 12%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(var(--brand-emerald)) 0%, hsl(var(--brand-gold)) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(222 14% 10%) 100%);
+
+    --shadow-elevate: 0 20px 50px -20px hsl(var(--brand-emerald) / 0.35);
+    --shadow-glow: 0 0 60px hsl(var(--brand-gold) / 0.35);
+    --blur-glass: 16px;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 0 0% 6%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 0 0% 6%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 152 64% 40%;
+    --primary-foreground: 152 86% 96%;
+
+    --secondary: 46 90% 55%;
+    --secondary-foreground: 46 100% 12%;
+
+    --muted: 222 14% 18%;
+    --muted-foreground: 215 20% 78%;
+
+    --accent: 220 10% 16%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 10% 20%;
+    --input: 220 10% 20%;
+    --ring: 152 64% 40%;
+
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 152 64% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 10% 16%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 220 10% 20%;
+    --sidebar-ring: 152 64% 40%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground font-sans antialiased; }
+}
+
+@layer components {
+  .glass {
+    background: hsl(var(--card) / 0.6);
+    backdrop-filter: blur(var(--blur-glass));
+    -webkit-backdrop-filter: blur(var(--blur-glass));
+    border: 1px solid hsl(var(--border) / 0.4);
+    box-shadow: var(--shadow-elevate);
+    border-radius: var(--radius);
+  }
+  .glow-ring {
+    box-shadow: 0 0 0 1px hsl(var(--brand-emerald) / 0.6), 0 0 24px hsl(var(--brand-emerald) / 0.35);
+  }
+  .gradient-text {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .ripple-btn { position: relative; overflow: hidden; }
+  .ripple-btn:after {
+    content: "";
+    position: absolute; inset: 0; border-radius: inherit;
+    background: radial-gradient(circle at var(--x,50%) var(--y,50%), hsl(var(--brand-emerald) / 0.25), transparent 40%);
+    opacity: 0; transition: opacity 300ms ease;
+  }
+  .ripple-btn:active:after { opacity: 1; transition: opacity 0s; }
+  .shimmer-bg {
+    background: linear-gradient(110deg, hsl(var(--accent)) 0%, hsl(var(--accent) / 0.7) 40%, hsl(var(--accent)) 60%);
+    background-size: 200% 100%;
+    animation: shimmer 2.5s linear infinite;
+  }
+}
